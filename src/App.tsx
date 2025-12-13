@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Addons from './pages/Addons';
+import WeakAuras from './pages/WeakAuras';
+import Macros from './pages/Macros';
+import Talentos from './pages/Talentos';
+import Gear from './pages/Gear';
+import UI from './pages/UI';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div className="flex gap-8 items-center">
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-4xl font-bold text-blue-600">Vite + React + Tailwind CSS</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)} className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter basename="/RunebladeMastery">
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="addons" element={<Addons />} />
+          <Route path="weakauras" element={<WeakAuras />} />
+          <Route path="macros" element={<Macros />} />
+          <Route path="talentos" element={<Talentos />} />
+          <Route path="gear" element={<Gear />} />
+          <Route path="ui" element={<UI />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

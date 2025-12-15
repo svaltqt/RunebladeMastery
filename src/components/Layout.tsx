@@ -1,18 +1,46 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import TopNavbar from './TopNavbar';
+import dkWallpaper from '../assets/death-knight-wallpaper.jpg';
 
 export default function Layout() {
+    const { className, spec } = useParams<{ className: string; spec?: string }>();
+
+    // Determine background style
+    const getBackgroundStyle = () => {
+        if (className === 'death-knight') {
+            return {
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${dkWallpaper})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundAttachment: 'fixed'
+            };
+        }
+        return {}; // Default fallbacks to class names
+    };
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-dk-black via-dk-dark-blue to-dk-black">
+        <div
+            className={`min-h-screen lg:flex ${className === 'death-knight' ? '' : 'bg-[#161e2e]'}`}
+            style={getBackgroundStyle()}
+        >
             <Sidebar />
-            {/* Container with left padding to avoid sidebar */}
-            <div className="lg:pl-64 min-h-screen flex items-center justify-center p-4 lg:p-8 pt-16 lg:pt-20">
-                {/* Content column - centered and constrained */}
-                <main className="w-full max-w-5xl">
-                    <div className="card min-h-[calc(100vh-8rem)]">
-                        <Outlet />
+
+            <div className="flex-1 w-full min-w-0">
+                {/* Main Content Area with TopNavbar */}
+                <div className="flex flex-col items-center p-4 lg:p-8 min-h-screen" style={{ paddingTop: '6vh' }}>
+                    {/* Top Navigation Bar */}
+                    <div className="w-full max-w-[87%] mb-4">
+                        <TopNavbar />
                     </div>
-                </main>
+
+                    {/* Content column */}
+                    <main className="w-full max-w-[87%]">
+                        <div className={`${spec ? 'card' : ''} min-h-[calc(10vh-3rem)]`}>
+                            <Outlet />
+                        </div>
+                    </main>
+                </div>
             </div>
         </div>
     );

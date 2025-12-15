@@ -18,8 +18,8 @@ export default function Navbar() {
 
     return (
         <nav className="glass sticky top-0 z-50 border-b border-blue-500/30">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+                <div className="flex items-center justify-between h-20">
                     {/* Logo */}
                     <Link to="/" className="flex items-center space-x-3 group">
                         <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center glow group-hover:scale-110 transition-transform">
@@ -31,14 +31,14 @@ export default function Navbar() {
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-1">
+                    <div className="hidden md:flex items-center space-x-3">
                         {navItems.map((item) => (
                             <Link
                                 key={item.path}
                                 to={item.path}
-                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${isActive(item.path)
-                                        ? 'bg-blue-500/20 text-cyan-300 shadow-lg shadow-blue-500/20'
-                                        : 'text-gray-300 hover:text-cyan-300 hover:bg-blue-500/10'
+                                className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${isActive(item.path)
+                                    ? 'bg-blue-500/20 text-cyan-300 shadow-lg shadow-blue-500/20'
+                                    : 'text-gray-300 hover:text-cyan-300 hover:bg-blue-500/10'
                                     }`}
                             >
                                 {item.name}
@@ -81,15 +81,15 @@ export default function Navbar() {
             {/* Mobile Navigation */}
             {mobileMenuOpen && (
                 <div className="md:hidden border-t border-blue-500/30 fade-in">
-                    <div className="px-2 pt-2 pb-3 space-y-1">
+                    <div className="px-4 pt-4 pb-5 space-y-3">
                         {navItems.map((item) => (
                             <Link
                                 key={item.path}
                                 to={item.path}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className={`block px-3 py-2 rounded-lg text-base font-medium transition-all ${isActive(item.path)
-                                        ? 'bg-blue-500/20 text-cyan-300'
-                                        : 'text-gray-300 hover:text-cyan-300 hover:bg-blue-500/10'
+                                className={`block px-5 py-4 rounded-lg text-base font-medium transition-all ${isActive(item.path)
+                                    ? 'bg-blue-500/20 text-cyan-300'
+                                    : 'text-gray-300 hover:text-cyan-300 hover:bg-blue-500/10'
                                     }`}
                             >
                                 {item.name}

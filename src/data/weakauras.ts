@@ -1,0 +1,65 @@
+import type { WeakAura } from '../types';
+
+export const weakauras: WeakAura[] = [
+    {
+        id: 'frost-rotation',
+        name: 'Frost DK Rotation Helper',
+        spec: 'Frost',
+        class: 'death-knight',
+        author: 'Community',
+        description: 'Complete rotation helper with cooldown tracking, buff monitoring, and proc alerts for Frost Death Knights.',
+        features: ['Killing Machine Alerts', 'Rime Proc Tracking', 'Pillar of Frost CD', 'Rune & RP Display'],
+        importString: '!WA:2!TRvzVTnss8Bp899S...',
+    },
+    {
+        id: 'blood-defensives',
+        name: 'Blood DK Defensive Tracker',
+        spec: 'Blood',
+        class: 'death-knight',
+        author: 'Community',
+        description: 'Track all your defensive cooldowns, Bone Shield stacks, and self-healing abilities for better survivability.',
+        features: ['Bone Shield Stacks', 'Vampiric Blood CD', 'Runetap Ready', 'Death Strike Tracker'],
+        importString: '!WA:2!1RvAZTXos9Dr8z9...',
+    },
+    {
+        id: 'unholy-rotation',
+        name: 'Unholy DK Complete Package',
+        spec: 'Unholy',
+        class: 'death-knight',
+        author: 'Community',
+        description: 'Full rotation helper with Festering Wound tracking, pet abilities, and burst window optimization.',
+        features: ['Festering Wounds', 'Apocalypse Timer', 'Death Coil/Epidemic', 'Gargoyle Tracking'],
+        importString: '!WA:2!TEvzZTPos8Cp799...',
+    },
+    {
+        id: 'pvp-defensives',
+        name: 'DK PvP Essentials',
+        spec: 'All Specs',
+        class: 'death-knight',
+        author: 'Community',
+        description: 'PvP-focused WeakAura pack with enemy cooldown tracking, diminishing returns, and defensive alerts.',
+        features: ['DR Tracker', 'Enemy CDs', 'Icebound Fortitude', 'Anti-Magic Zone'],
+        importString: '!WA:2!9RvzVTnss8Bp899...',
+    },
+    {
+        id: 'mythic-plus',
+        name: 'M+ Affix Helper',
+        spec: 'All Specs',
+        class: 'death-knight',
+        author: 'Community',
+        description: 'Mythic+ focused with affix-specific alerts, interrupt tracking, and priority target highlighting.',
+        features: ['Affix Warnings', 'Interrupt Ready', 'Priority Adds', 'Death Grip CD'],
+        importString: '!WA:2!7RvzVTnss8Bp899...',
+    },
+    // TEST WEAKAURA AS REQUESTED
+    {
+        id: 'test-unholy-exclusive',
+        name: '[TEST] Unholy Exclusive WA',
+        spec: 'Unholy',
+        class: 'death-knight',
+        author: 'TestUser',
+        description: 'This is a test WeakAura that should ONLY appear when you are in the Unholy spec section.',
+        features: ['Test Feature 1', 'Test Feature 2'],
+        importString: '!WA:2!TESTING123...',
+    }
+];

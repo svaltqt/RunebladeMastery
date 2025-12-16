@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import RightSidebar from '../components/RightSidebar';
 
 export default function Macros() {
     const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -109,130 +110,149 @@ export default function Macros() {
 
     return (
         <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-16 fade-in">
-                    <h1 className="mb-4">Death Knight Macros</h1>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                        Essential macros to enhance your Death Knight gameplay and efficiency
-                    </p>
-                </div>
+            <div className="max-w-7xl mx-auto flex gap-8">
+                {/* Main Content */}
+                <div className="flex-1 min-w-0">
+                    {/* Header */}
+                    <div id="header" className="text-center mb-16 fade-in">
+                        <h1 className="mb-4">Death Knight Macros</h1>
+                        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                            Essential macros to enhance your Death Knight gameplay and efficiency
+                        </p>
+                    </div>
 
-                {/* Guide */}
-                <div className="card mb-12 fade-in">
-                    <h2 className="mb-4">How to Create Macros</h2>
-                    <div className="space-y-4 text-gray-300">
-                        <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 bg-cyan-500/20 border border-cyan-500/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <span className="text-cyan-400 font-bold text-sm">1</span>
+                    {/* Guide */}
+                    <div id="guide" className="card mb-12 fade-in">
+                        <h2 className="mb-4">How to Create Macros</h2>
+                        <div className="space-y-4 text-gray-300">
+                            <div className="flex items-start gap-3">
+                                <div className="w-8 h-8 bg-cyan-500/20 border border-cyan-500/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span className="text-cyan-400 font-bold text-sm">1</span>
+                                </div>
+                                <div>
+                                    <p className="font-semibold text-cyan-300 mb-1">Open Macro Interface</p>
+                                    <p className="text-sm text-gray-400">Type <code className="bg-blue-900/40 px-2 py-1 rounded">/macro</code> or press <code className="bg-blue-900/40 px-2 py-1 rounded">ESC</code> → Interface → Macros</p>
+                                </div>
                             </div>
-                            <div>
-                                <p className="font-semibold text-cyan-300 mb-1">Open Macro Interface</p>
-                                <p className="text-sm text-gray-400">Type <code className="bg-blue-900/40 px-2 py-1 rounded">/macro</code> or press <code className="bg-blue-900/40 px-2 py-1 rounded">ESC</code> → Interface → Macros</p>
+                            <div className="flex items-start gap-3">
+                                <div className="w-8 h-8 bg-cyan-500/20 border border-cyan-500/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span className="text-cyan-400 font-bold text-sm">2</span>
+                                </div>
+                                <div>
+                                    <p className="font-semibold text-cyan-300 mb-1">Create New Macro</p>
+                                    <p className="text-sm text-gray-400">Click "New" and choose an icon and name</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 bg-cyan-500/20 border border-cyan-500/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <span className="text-cyan-400 font-bold text-sm">2</span>
+                            <div className="flex items-start gap-3">
+                                <div className="w-8 h-8 bg-cyan-500/20 border border-cyan-500/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span className="text-cyan-400 font-bold text-sm">3</span>
+                                </div>
+                                <div>
+                                    <p className="font-semibold text-cyan-300 mb-1">Paste Code</p>
+                                    <p className="text-sm text-gray-400">Copy the macro code below and paste it in the macro body</p>
+                                </div>
                             </div>
-                            <div>
-                                <p className="font-semibold text-cyan-300 mb-1">Create New Macro</p>
-                                <p className="text-sm text-gray-400">Click "New" and choose an icon and name</p>
-                            </div>
-                        </div>
-                        <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 bg-cyan-500/20 border border-cyan-500/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <span className="text-cyan-400 font-bold text-sm">3</span>
-                            </div>
-                            <div>
-                                <p className="font-semibold text-cyan-300 mb-1">Paste Code</p>
-                                <p className="text-sm text-gray-400">Copy the macro code below and paste it in the macro body</p>
-                            </div>
-                        </div>
-                        <div className="flex items-start gap-3">
-                            <div className="w-8 h-8 bg-cyan-500/20 border border-cyan-500/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                                <span className="text-cyan-400 font-bold text-sm">4</span>
-                            </div>
-                            <div>
-                                <p className="font-semibold text-cyan-300 mb-1">Drag to Action Bar</p>
-                                <p className="text-sm text-gray-400">Drag the macro from the interface to your action bars</p>
+                            <div className="flex items-start gap-3">
+                                <div className="w-8 h-8 bg-cyan-500/20 border border-cyan-500/50 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <span className="text-cyan-400 font-bold text-sm">4</span>
+                                </div>
+                                <div>
+                                    <p className="font-semibold text-cyan-300 mb-1">Drag to Action Bar</p>
+                                    <p className="text-sm text-gray-400">Drag the macro from the interface to your action bars</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                {/* Macros List */}
-                <div className="space-y-6">
-                    {macros.map((macro, index) => (
-                        <div
-                            key={macro.id}
-                            className="card fade-in"
-                            style={{ animationDelay: `${index * 0.05}s` }}
-                        >
-                            <div className="mb-4">
-                                <div className="flex flex-wrap items-center gap-3 mb-3">
-                                    <h3 className="text-2xl font-bold text-cyan-300">{macro.name}</h3>
-                                    <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(macro.category)}`}>
-                                        {macro.category}
-                                    </span>
+                    {/* Macros List */}
+                    <div id="macros-list" className="space-y-6">
+                        {macros.map((macro, index) => (
+                            <div
+                                key={macro.id}
+                                className="card fade-in"
+                                style={{ animationDelay: `${index * 0.05}s` }}
+                            >
+                                <div className="mb-4">
+                                    <div className="flex flex-wrap items-center gap-3 mb-3">
+                                        <h3 className="text-2xl font-bold text-cyan-300">{macro.name}</h3>
+                                        <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(macro.category)}`}>
+                                            {macro.category}
+                                        </span>
+                                    </div>
+                                    <p className="text-gray-300 leading-relaxed">
+                                        {macro.description}
+                                    </p>
                                 </div>
-                                <p className="text-gray-300 leading-relaxed">
-                                    {macro.description}
-                                </p>
-                            </div>
 
-                            <div className="bg-gray-900/50 border border-blue-500/30 rounded-lg p-4 mb-4">
-                                <div className="flex items-center justify-between mb-2">
-                                    <span className="text-sm font-semibold text-cyan-400">Macro Code</span>
-                                    <button
-                                        onClick={() => copyToClipboard(macro.code, macro.id)}
-                                        className={`text-sm px-3 py-1 rounded transition-all ${copiedId === macro.id
+                                <div className="bg-gray-900/50 border border-blue-500/30 rounded-lg p-4 mb-4">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <span className="text-sm font-semibold text-cyan-400">Macro Code</span>
+                                        <button
+                                            onClick={() => copyToClipboard(macro.code, macro.id)}
+                                            className={`text-sm px-3 py-1 rounded transition-all ${copiedId === macro.id
                                                 ? 'bg-green-600 text-white'
                                                 : 'bg-blue-600/50 hover:bg-blue-600 text-white'
-                                            }`}
-                                    >
-                                        {copiedId === macro.id ? '✓ Copied!' : 'Copy'}
-                                    </button>
+                                                }`}
+                                        >
+                                            {copiedId === macro.id ? '✓ Copied!' : 'Copy'}
+                                        </button>
+                                    </div>
+                                    <pre className="text-sm text-gray-300 font-mono whitespace-pre-wrap break-all">
+                                        {macro.code}
+                                    </pre>
                                 </div>
-                                <pre className="text-sm text-gray-300 font-mono whitespace-pre-wrap break-all">
-                                    {macro.code}
-                                </pre>
-                            </div>
 
-                            <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
-                                <h4 className="text-sm font-semibold text-cyan-400 mb-2">Usage</h4>
-                                <p className="text-sm text-gray-300">{macro.usage}</p>
+                                <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+                                    <h4 className="text-sm font-semibold text-cyan-400 mb-2">Usage</h4>
+                                    <p className="text-sm text-gray-300">{macro.usage}</p>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
+
+                    {/* Tips */}
+                    <div id="tips" className="card mt-12 fade-in">
+                        <h2 className="mb-4">Macro Tips & Best Practices</h2>
+                        <ul className="space-y-3 text-gray-300">
+                            <li className="flex items-start">
+                                <span className="text-cyan-400 mr-3">•</span>
+                                <span>255 character limit per macro - keep them concise</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-cyan-400 mr-3">•</span>
+                                <span>Use <code className="bg-blue-900/40 px-2 py-1 rounded">#showtooltip</code> to display ability tooltips and cooldowns</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-cyan-400 mr-3">•</span>
+                                <span>Test macros on target dummies before using in combat</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-cyan-400 mr-3">•</span>
+                                <span>Macros are spam-safe - you can spam them without breaking functionality</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-cyan-400 mr-3">•</span>
+                                <span>Update potion names when new seasons/expansions release</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                {/* Tips */}
-                <div className="card mt-12 fade-in">
-                    <h2 className="mb-4">Macro Tips & Best Practices</h2>
-                    <ul className="space-y-3 text-gray-300">
-                        <li className="flex items-start">
-                            <span className="text-cyan-400 mr-3">•</span>
-                            <span>255 character limit per macro - keep them concise</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-cyan-400 mr-3">•</span>
-                            <span>Use <code className="bg-blue-900/40 px-2 py-1 rounded">#showtooltip</code> to display ability tooltips and cooldowns</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-cyan-400 mr-3">•</span>
-                            <span>Test macros on target dummies before using in combat</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-cyan-400 mr-3">•</span>
-                            <span>Macros are spam-safe - you can spam them without breaking functionality</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-cyan-400 mr-3">•</span>
-                            <span>Update potion names when new seasons/expansions release</span>
-                        </li>
-                    </ul>
-                </div>
+                <RightSidebar
+                    navigationItems={[
+                        { label: 'Introduction', href: '#header' },
+                        { label: 'How to Create', href: '#guide' },
+                        { label: 'Macros List', href: '#macros-list' },
+                        { label: 'Tips & Tricks', href: '#tips' }
+                    ]}
+                >
+                    <div className="bg-blue-900/10 border border-blue-500/20 rounded-lg p-4">
+                        <h3 className="text-sm font-bold text-cyan-400 uppercase tracking-wider mb-2">Pro Tip</h3>
+                        <p className="text-sm text-gray-400">
+                            Use <code className="text-cyan-300">#showtooltip</code> in every macro to automatically see the icon and cooldown of the ability being used.
+                        </p>
+                    </div>
+                </RightSidebar>
             </div>
         </div>
     );

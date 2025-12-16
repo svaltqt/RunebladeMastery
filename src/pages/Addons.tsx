@@ -1,3 +1,5 @@
+import RightSidebar from '../components/RightSidebar';
+
 export default function Addons() {
     const addons = [
         {
@@ -61,123 +63,96 @@ export default function Addons() {
 
     return (
         <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-16 fade-in">
-                    <h1 className="mb-4">Essential Addons</h1>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                        Enhance your Death Knight experience with these must-have addons
-                    </p>
-                </div>
+            <div className="max-w-7xl mx-auto flex gap-8">
+                {/* Main Content */}
+                <div className="flex-1 min-w-0">
+                    {/* Header */}
+                    <div id="header" className="text-center mb-16 fade-in">
+                        <h1 className="mb-4">Essential Addons</h1>
+                        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                            Enhance your Death Knight experience with these must-have addons
+                        </p>
+                    </div>
 
-                {/* Installation Guide */}
-                <div className="card mb-12 fade-in">
-                    <h2 className="mb-4">Installation Guide</h2>
-                    <p className="text-gray-300 mb-6">
-                        The easiest way to manage addons is through an addon manager:
-                    </p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
-                            <h3 className="text-lg font-semibold text-cyan-300 mb-2">CurseForge App</h3>
-                            <p className="text-gray-400 text-sm mb-3">
-                                Official addon manager with automatic updates
-                            </p>
-                            <a
-                                href="https://www.curseforge.com/download/app"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn btn-primary text-sm inline-block"
+                    {/* Addons List */}
+                    <div id="list" className="space-y-6">
+                        {addons.map((addon, index) => (
+                            <div
+                                key={addon.name}
+                                className="card fade-in"
+                                style={{ animationDelay: `${index * 0.05}s` }}
                             >
-                                Download
-                            </a>
-                        </div>
-                        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-6">
-                            <h3 className="text-lg font-semibold text-cyan-300 mb-2">WoWUp</h3>
-                            <p className="text-gray-400 text-sm mb-3">
-                                Open-source alternative with great features
-                            </p>
-                            <a
-                                href="https://wowup.io"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn btn-primary text-sm inline-block"
-                            >
-                                Download
-                            </a>
-                        </div>
+                                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+                                    <div className="flex-1">
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <h3 className="text-2xl font-bold text-cyan-300">{addon.name}</h3>
+                                            <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(addon.category)}`}>
+                                                {addon.category}
+                                            </span>
+                                        </div>
+                                        <p className="text-gray-300 mb-4 leading-relaxed">
+                                            {addon.description}
+                                        </p>
+                                        <div>
+                                            <h4 className="text-sm font-semibold text-cyan-400 mb-2">Key Features</h4>
+                                            <div className="flex flex-wrap gap-2">
+                                                {addon.features.map((feature) => (
+                                                    <span
+                                                        key={feature}
+                                                        className="px-3 py-1 bg-blue-900/30 border border-blue-500/40 rounded-full text-xs text-gray-300"
+                                                    >
+                                                        {feature}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="lg:ml-6">
+                                        <a
+                                            href={addon.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="btn btn-primary whitespace-nowrap"
+                                        >
+                                            Download →
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Tips */}
+                    <div id="tips" className="card mt-12 fade-in">
+                        <h2 className="mb-4">Configuration Tips</h2>
+                        <ul className="space-y-3 text-gray-300">
+                            <li className="flex items-start">
+                                <span className="text-cyan-400 mr-3">•</span>
+                                <span>Start with default settings and customize gradually as you learn each addon</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-cyan-400 mr-3">•</span>
+                                <span>Keep addons updated for optimal performance and bug fixes</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-cyan-400 mr-3">•</span>
+                                <span>Disable addons you're not using to reduce memory usage</span>
+                            </li>
+                            <li className="flex items-start">
+                                <span className="text-cyan-400 mr-3">•</span>
+                                <span>Check addon compatibility after major WoW patches</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                {/* Addons List */}
-                <div className="space-y-6">
-                    {addons.map((addon, index) => (
-                        <div
-                            key={addon.name}
-                            className="card fade-in"
-                            style={{ animationDelay: `${index * 0.05}s` }}
-                        >
-                            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                                <div className="flex-1">
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <h3 className="text-2xl font-bold text-cyan-300">{addon.name}</h3>
-                                        <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${getCategoryColor(addon.category)}`}>
-                                            {addon.category}
-                                        </span>
-                                    </div>
-                                    <p className="text-gray-300 mb-4 leading-relaxed">
-                                        {addon.description}
-                                    </p>
-                                    <div>
-                                        <h4 className="text-sm font-semibold text-cyan-400 mb-2">Key Features</h4>
-                                        <div className="flex flex-wrap gap-2">
-                                            {addon.features.map((feature) => (
-                                                <span
-                                                    key={feature}
-                                                    className="px-3 py-1 bg-blue-900/30 border border-blue-500/40 rounded-full text-xs text-gray-300"
-                                                >
-                                                    {feature}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="lg:ml-6">
-                                    <a
-                                        href={addon.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="btn btn-primary whitespace-nowrap"
-                                    >
-                                        Download →
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Tips */}
-                <div className="card mt-12 fade-in">
-                    <h2 className="mb-4">Configuration Tips</h2>
-                    <ul className="space-y-3 text-gray-300">
-                        <li className="flex items-start">
-                            <span className="text-cyan-400 mr-3">•</span>
-                            <span>Start with default settings and customize gradually as you learn each addon</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-cyan-400 mr-3">•</span>
-                            <span>Keep addons updated for optimal performance and bug fixes</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-cyan-400 mr-3">•</span>
-                            <span>Disable addons you're not using to reduce memory usage</span>
-                        </li>
-                        <li className="flex items-start">
-                            <span className="text-cyan-400 mr-3">•</span>
-                            <span>Check addon compatibility after major WoW patches</span>
-                        </li>
-                    </ul>
-                </div>
+                <RightSidebar
+                    navigationItems={[
+                        { label: 'Recommended Addons', href: '#header' },
+                        { label: 'Addons List', href: '#list' },
+                        { label: 'Configuration Tips', href: '#tips' }
+                    ]}
+                />
             </div>
         </div>
     );

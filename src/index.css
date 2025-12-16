@@ -229,3 +229,74 @@
     color: var(--dk-frost);
   }
 }
+
+/* Wowhead Tooltips Customization */
+a.icontiny,
+a.iconsmall,
+a.iconmedium {
+  position: relative;
+  padding-left: 24px !important;
+  /* Increase space for the icon */
+}
+
+a.icontiny::before,
+a.iconsmall::before,
+a.iconmedium::before {
+  transform: scale(1.5);
+  /* Make the icon 50% larger */
+  transform-origin: left center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  /* Adjust vertical alignment based on original size */
+}
+
+/* Utility to suppress Wowhead icon spacing and pseudo-element */
+a.no-wh-icon {
+  padding-left: 0 !important;
+  background-image: none !important;
+}
+
+a.no-wh-icon::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Force Wowhead icon to fill the custom box */
+.gear-icon-adjust {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-size: cover !important;
+  /* If wowhead uses background */
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.gear-icon-adjust img,
+.gear-icon-adjust div {
+  display: none !important;
+  /* Sometimes wowhead puts a placeholder div, we might want to hide it if background works, or style it. */
+  /* Wait, usually wowhead large icon IS the background of the A tag or an ins tag. safely assume A tag background for large icons usually. or an IMG. */
+}
+
+/* Actually, let's just reset padding/margin/size on everything inside */
+.gear-icon-adjust *,
+.gear-icon-adjust img,
+.gear-icon-adjust div,
+.gear-icon-adjust canvas {
+  max-width: none !important;
+  max-height: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  /* Remove borders from inner elements too */
+  outline: none !important;
+  object-fit: cover !important;
+  transform: scale(1.02) translate(-3px, -3px) !important;
+  /* Zoom in slightly to hide borders */
+}

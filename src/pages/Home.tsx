@@ -6,6 +6,7 @@ import unholyIcon from '../assets/death-knight-unholy.avif';
 import afflictionIcon from '../assets/warlock-affliction.avif';
 import demonologyIcon from '../assets/warlock-demonology.avif';
 import destructionIcon from '../assets/warlock-destruction.avif';
+import RightSidebar from '../components/RightSidebar';
 
 export default function Home() {
     const { className, spec } = useParams<{ className: string; spec?: string }>();
@@ -209,26 +210,22 @@ export default function Home() {
             </div>
 
             {/* Internal Sidebar - Moved to Right */}
-            <aside className="w-48 hidden md:block shrink-0 sticky top-4 self-start">
-                <div className="space-y-6 border-l border-gray-700/50 pl-6">
-                    <div>
-                        <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">On this page</h3>
-                        <ul className="space-y-2 text-sm">
-                            <li><a href="#welcome" className="text-gray-200 hover:text-gray-300">Welcome</a></li>
-                            <li><a href="#quick-links" className="text-gray-400 hover:text-gray-200">Quick Links</a></li>
-                            <li><a href="#about" className="text-gray-400 hover:text-gray-200">About</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Resources</h3>
-                        <ul className="space-y-2 text-sm">
-                            <li><a href="#" className="text-gray-400 hover:text-gray-200">Class Discord</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-gray-200">SimCraft</a></li>
-                            <li><a href="#" className="text-gray-400 hover:text-gray-200">Warcraft Logs</a></li>
-                        </ul>
-                    </div>
+            <RightSidebar
+                navigationItems={[
+                    { label: 'Welcome', href: '#welcome' },
+                    { label: 'Quick Links', href: '#quick-links' },
+                    { label: 'About', href: '#about' }
+                ]}
+            >
+                <div>
+                    <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-3">Resources</h3>
+                    <ul className="space-y-2 text-sm">
+                        <li><a href="#" className="text-gray-400 hover:text-gray-200">Class Discord</a></li>
+                        <li><a href="#" className="text-gray-400 hover:text-gray-200">SimCraft</a></li>
+                        <li><a href="#" className="text-gray-400 hover:text-gray-200">Warcraft Logs</a></li>
+                    </ul>
                 </div>
-            </aside>
+            </RightSidebar>
         </div>
     );
 }
